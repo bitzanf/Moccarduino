@@ -17,6 +17,7 @@ int main(int argc, char* argv[])
     arduino.registerPin(LED_BUILTIN, OUTPUT);
 
     try {
+        arduino.loadTestedCode(ARDUINO_PROGRAM);
         arduino.runSetup();
 
         TimeSeries<ArduinoPinState> events;

@@ -13,10 +13,10 @@ TESTED_CFLAGS=$(SHARED_CFLAGS) -nostdlib -nodefaultlibs -nostartfiles
 TESTED_LDFLAGS=-shared -fPIC
 TESTED_SOURCE=tested_code_wrapper.cpp
 
-TARGET=test_funshield_buttons_leds
-TESTED_TARGET=buttons_leds.so
+TARGET=experiment
+TESTED_TARGET=tested_code.so
 
-CFLAGS += -DARDUINO_PROGRAM=\"$(TESTED_TARGET)\"
+CFLAGS += -DARDUINO_PROGRAM=\"./$(TESTED_TARGET)\"
 
 .PHONY: all clear clean purge
 

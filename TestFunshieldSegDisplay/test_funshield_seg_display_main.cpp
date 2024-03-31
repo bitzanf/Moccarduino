@@ -54,6 +54,7 @@ int main(int argc, char* argv[])
         demuxer.attachNextConsumer(aggregator);
         aggregator.attachNextConsumer(events);
 
+        arduino.loadTestedCode(ARDUINO_PROGRAM);
         arduino.runSetup();
 
         // simulate the run until all buttons are pressed

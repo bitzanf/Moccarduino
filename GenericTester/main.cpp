@@ -194,6 +194,7 @@ int main(int argc, char* argv[])
         }
 
         // run simulation
+        arduino.loadTestedCode(ARDUINO_PROGRAM);
         arduino.runSetup();
 
         // This analysis is performed to ensure that in one loop is only one display change (latch activation)
