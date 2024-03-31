@@ -185,6 +185,14 @@ public:
 	}
 
 	/**
+	* Load the student's tested code after the emulator's initialization
+	*/
+	void loadTestedCode(const std::string &fileName)
+	{
+		mEmulator.loadTestedCode(fileName);
+	}
+
+	/**
 	 * Invoke the setup function.
 	 * @param setupDelay How much is internal clock advanced after the setup.
 	 */

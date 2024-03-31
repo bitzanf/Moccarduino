@@ -3,6 +3,7 @@
 
 #include "time_series.hpp"
 #include "constants.hpp"
+#include "program_manager.hpp"
 
 #include <deque>
 #include <map>
@@ -17,10 +18,6 @@ using pin_t = std::uint8_t;
 
 
 class ArduinoSimulationController; // forward declaration, so we can befriend this class
-
-// Tested code interface
-void setup();
-void loop();
 
 
 /**
@@ -231,6 +228,11 @@ private:
 	 * Buffer of currently available serial data (which can be read by Arduino).
 	 */
 	std::deque<char> mSerialData;
+
+	/**
+	 * Manages the student's Arduino program and handles runtime function linkage.
+	*/
+	ArduinoProgramManager mProgramManager;
 	
 	void reset()
 	{
@@ -324,11 +326,20 @@ private:
 	}
 
 	/**
+	* Load the student's code and perform static object initialization.
+	* Used by the simulator after it gets properly initialized.
+	*/
+	void loadTestedCode(const std::string &fileName)
+	{
+		mProgramManager.loadProgram(fileName);
+	}
+
+	/**
 	 * Abstraction of setup() invocation used by the simulator.
 	 */
 	void invokeSetup()
 	{
-		setup();
+		mProgramManager.runSetup();
 	}
 
 	/**
@@ -336,7 +347,7 @@ private:
 	 */
 	void invokeLoop()
 	{
-		loop();
+		mProgramManager.runLoop();
 	}
 
 public:
