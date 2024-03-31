@@ -23,14 +23,6 @@ There are several differences from the actual Arduino which may cause you proble
 </thead>
 <tbody>
 	<tr>
-		<td>Unsupported complex initialization of global variables</td>
-		<td class="text-nowrap"><code>size_t t = millis();</code></td>
-		<td>
-			Initialize the variable with a default value and call the complex initialization in 
-			the <code>setup()</code> function.
-		</td>
-	</tr>
-	<tr>
 		<td>Serial communication API</td>
 		<td class="text-nowrap"><code>Serial.print();</code></td>
 		<td>Only <code>Serial.begin()</code>, <code>Serial.print()</code>, and <code>Serial.println()</code> are currently implemented (which should be enough for debugging). The methods does not perform anything, they are placeholders, so you do not remove you debug-code when testing. The testing scenaion may opt-out (disable the serial interface).</td>
@@ -56,18 +48,6 @@ There are several differences from the actual Arduino which may cause you proble
 		<td>In C++, you need to declare functions (classes, ...) before you use them (Arduino IDE is more benevolent).</td>
 	</tr>
 	<tr>
-		<td>Static methods</td>
-		<td class="text-nowrap"><code>class Foo { static void foo() ... }</code></td>
-		<td>Static methods do not work in Moccarduino, use plain old C functions instead.</td>
-	</tr>
-	<tr>
-		<td>Initialization</td>
-		<td class="text-nowrap"><code>class Button { </code><br>
-			<code>  Button() { pinMode( b[0], INPUT); } </code><br>
-			<code>};</code></td>
-		<td>Emulated functions from Arduino IDE (e.g., pinMode) <b>MUST</b> be called in setup (not in constructors). Early emulator initialization (e.g., in a constructor of a global object) causes a signal and your program is terminated.</td>
-	</tr>
-	<tr>
 		<td>Unsupported type <code>String</code></td>
 		<td class="text-nowrap"><code>String stringOne = "Hello String";</code></td>
 		<td>Use standard C-strings instead, i.e., <code>const char *stringOne = "Hello String";</code></td>
@@ -90,6 +70,7 @@ The most important part of the code is in `shared` directory. The surrounding pr
 - `simulation.hpp` uses the `emulator.hpp` and implements controller for the simulation
 - `led_display.hpp` is an implementation of 7-seg LED display accompanied by shift register (sequentially fed matrix control) and its demultiplexing and content decoding
 - `simulation_funshield.hpp` uses `simulation.hpp` and implements higher-level simulation routines targeting specifically Funshield applications
+- `program_manager.cpp` uses `program_manager.hpp` and takes care of loading the tested program only when the emulator is already initialized (from a shared library) to allow it to call the emulator's functions while initializing global objects
 
 
 ## Credits and Disclaimer
