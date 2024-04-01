@@ -4,13 +4,7 @@
 #include <string>
 #include <stdexcept>
 
-#ifdef __linux__
-    using LibraryHandle = void*;
-#elif _WIN32
-    using LibraryHandle = HMODULE;
-#else
-    #error "Unsupported OS platform!"
-#endif
+class ArduinoEmulator;
 
 class ArduinoProgramManager {
 private:
@@ -18,13 +12,20 @@ private:
     void (*mArduinoSetup)();
     void (*mArduinoLoop)();
 
-    LibraryHandle mArduinoProgramHandle;
+    void* mArduinoProgramHandle;
+
+    /**
+     * Only really necessary for Windows, as LoadLibrary doesn't perform reverse
+     * linking (and as such the emulator's functions can't be linked to the running instance).
+     */
+    ArduinoEmulator* mEmulator;
 
 public:
-    ArduinoProgramManager() :
+    ArduinoProgramManager(ArduinoEmulator* emulator) :
         mArduinoSetup(nullptr),
         mArduinoLoop(nullptr),
-        mArduinoProgramHandle(nullptr)
+        mArduinoProgramHandle(nullptr),
+        mEmulator(emulator)
     {}
 
     ~ArduinoProgramManager();

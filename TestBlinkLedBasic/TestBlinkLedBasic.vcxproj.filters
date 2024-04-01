@@ -21,8 +21,8 @@
     <ClCompile Include="test_blink_led_basic_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tested_code_wrapper.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="..\shared\program_manager.cpp">
+      <Filter>shared</Filter>
     </ClCompile>
     <ClCompile Include="..\shared\interface.cpp">
       <Filter>shared</Filter>
@@ -59,6 +59,9 @@
       <Filter>shared</Filter>
     </ClInclude>
     <ClInclude Include="..\shared\helpers.hpp">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\program_manager.hpp">
       <Filter>shared</Filter>
     </ClInclude>
   </ItemGroup>

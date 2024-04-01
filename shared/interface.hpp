@@ -8,19 +8,7 @@
 
 // https://gcc.gnu.org/wiki/Visibility
 #if defined _WIN32 || defined __CYGWIN__
-  #ifdef BUILDING_LIB
-	#ifdef __GNUC__
-	  #define LIBRARY_API __attribute__ ((dllexport))
-	#else
-	  #define LIBRARY_API __declspec(dllexport) // Note: actually gcc seems to also supports this syntax.
-	#endif
-  #else
-	#ifdef __GNUC__
-	  #define LIBRARY_API __attribute__ ((dllimport))
-	#else
-	  #define LIBRARY_API __declspec(dllimport) // Note: actually gcc seems to also supports this syntax.
-	#endif
-  #endif
+#define LIBRARY_API
 #else
   #if __GNUC__ >= 4
 	#define LIBRARY_API __attribute__ ((visibility ("default")))
@@ -251,6 +239,6 @@ public:
 	std::size_t readBytes(char* buffer, std::size_t length);
 };
 
-extern SerialMock Serial;
+LIBRARY_API extern SerialMock Serial;
 
 #endif

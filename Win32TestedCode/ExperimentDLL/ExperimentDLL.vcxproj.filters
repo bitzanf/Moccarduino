@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
@@ -13,32 +13,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\tests">
-      <UniqueIdentifier>{688eb559-04a3-40a4-b035-4d42d913c331}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="unit_tests_main.cpp">
+    <ClCompile Include="..\library_interface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\led_display.cpp">
-      <Filter>Source Files\tests</Filter>
+    <ClCompile Include="..\dllmain.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\simulation.cpp">
-      <Filter>Source Files\tests</Filter>
-    </ClCompile>
-    <ClCompile Include="tests\helpers.cpp">
-      <Filter>Source Files\tests</Filter>
-    </ClCompile>
-    <ClCompile Include="tests\time_series.cpp">
-      <Filter>Source Files\tests</Filter>
-    </ClCompile>
-    <ClCompile Include="..\shared\program_manager.cpp">
+    <ClCompile Include="..\..\Experiment\tested_code_wrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="test.hpp">
+    <ClInclude Include="..\..\shared\interface.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

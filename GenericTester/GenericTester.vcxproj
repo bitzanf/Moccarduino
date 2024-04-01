@@ -119,7 +119,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;ARDUINO_PROGRAM="$(AssemblyName)DLL.dll";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>../shared</AdditionalIncludeDirectories>
@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\shared\interface.cpp" />
+    <ClCompile Include="..\shared\program_manager.cpp" />
     <ClCompile Include="dataio.cpp" />
     <ClCompile Include="tested_code_wrapper.cpp" />
     <ClCompile Include="main.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="..\shared\helpers.hpp" />
     <ClInclude Include="..\shared\interface.hpp" />
     <ClInclude Include="..\shared\led_display.hpp" />
+    <ClInclude Include="..\shared\program_manager.hpp" />
     <ClInclude Include="..\shared\simulation.hpp" />
     <ClInclude Include="..\shared\simulation_funshield.hpp" />
     <ClInclude Include="..\shared\time_series.hpp" />

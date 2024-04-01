@@ -30,6 +30,9 @@
     <ClCompile Include="dataio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\program_manager.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="solution.ino">
@@ -71,6 +74,9 @@
       <Filter>shared</Filter>
     </ClInclude>
     <ClInclude Include="..\shared\exception.hpp">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\program_manager.hpp">
       <Filter>shared</Filter>
     </ClInclude>
   </ItemGroup>

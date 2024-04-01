@@ -312,4 +312,4 @@ std::size_t SerialMock::readBytes(char* buffer, std::size_t length)
 }
 
 
-SerialMock Serial LIBRARY_API;
+SerialMock LIBRARY_API Serial;

@@ -27,6 +27,9 @@
     <ClCompile Include="..\shared\interface.cpp">
       <Filter>shared</Filter>
     </ClCompile>
+    <ClCompile Include="..\shared\program_manager.cpp">
+      <Filter>shared</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="seg_display.ino">
@@ -59,6 +62,9 @@
       <Filter>shared</Filter>
     </ClInclude>
     <ClInclude Include="..\shared\time_series.hpp">
+      <Filter>shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\program_manager.hpp">
       <Filter>shared</Filter>
     </ClInclude>
   </ItemGroup>

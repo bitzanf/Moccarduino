@@ -113,7 +113,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;ARDUINO_PROGRAM="$(AssemblyName)DLL.dll";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <AdditionalIncludeDirectories>../shared</AdditionalIncludeDirectories>
@@ -165,6 +165,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\shared\interface.cpp" />
+    <ClCompile Include="..\shared\program_manager.cpp" />
     <ClCompile Include="experiment_main.cpp" />
     <ClCompile Include="tested_code_wrapper.cpp" />
   </ItemGroup>

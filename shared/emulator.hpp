@@ -372,7 +372,8 @@ public:
 		mEnableSerial(false),
 		mPinReadDelay(20),
 		mPinWriteDelay(20),
-		mPinSetModeDelay(100)
+		mPinSetModeDelay(100),
+		mProgramManager(this)
 	{}
 
 	/*
